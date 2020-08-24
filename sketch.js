@@ -7,11 +7,11 @@ var start = false;
 function setup(){
 canvas = createCanvas(1920, 1080);
 background(255);
-
+noCursor();
 var vertices = [];
 
 var r = height * 0.4;
-var num = 120;
+var num = 50;
 
 //Create initial nodes;
 
@@ -30,6 +30,7 @@ for (var i = 0; i < vertices.length - 1;  i++){
 
 edge_list.push(new Edge(vertices[vertices.length - 1], vertices[0]));
 
+frameRate(60);
 }
 
 function draw(){
@@ -49,7 +50,7 @@ function draw(){
     var l = edge.getLen();
 
     if (edge_list.length < 500){
-        if ( random(0, 1) < 0.001){
+        if ( random(0.0, 1) < 0.001){
           var adds = edge.split();
           toAdd.push(adds[0]);
           toAdd.push(adds[1]);
@@ -96,6 +97,9 @@ function mouseClicked(){
   start = true;
 }
 
+/*
  function keyPressed(){
    save();
+   console.log("Saving!");
  }
+ */

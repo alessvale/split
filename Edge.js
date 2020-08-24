@@ -27,7 +27,7 @@ function Edge(p1, p2){
     var l = this.p2.pos.dist(this.p1.pos) - 10;
     var force = new p5.Vector(this.p2.pos.x - this.p1.pos.x, this.p2.pos.y - this.p1.pos.y);
     force.normalize();
-    force.mult(l * 0.009);
+    force.mult(l * 0.01);
     this.p1.applyForce(force);
     force.mult(-1.0);
     this.p2.applyForce(force);

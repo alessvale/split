@@ -13,7 +13,7 @@ function Part(x, y) {
   this.rad = random(5, 15);
 
   //Initialize the force vector;
-  
+
   this.forceApplied = new p5.Vector(0.0, 0.0);
 
 
@@ -22,6 +22,11 @@ function Part(x, y) {
   }
 
   this.move = function(){
+    var radial = new p5.Vector(this.pos.x - width * 0.5, this.pos.y - height * 0.5);
+    var m = radial.mag();
+    radial.normalize();
+    radial.mult(0.05/m);
+    this.vel.add(radial);
     this.forceApplied.limit(0.3);
     this.vel.add(this.forceApplied);
     this.vel.limit(0.4);
